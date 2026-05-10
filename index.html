@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desmame do GLP-1 | Andressa Bertoli Nutricionista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand:       #C4A882;
+      --taupe:      #8B7355;
+      --dark:       #3A2F24;
+      --cream:      #FAF7F2;
+      --light-t:    #E8DDD0;
+      --accent:     #B8956A;
+      --white:      #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); line-height: 1.7; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250,247,242,0.96); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--light-t);
+      padding: 14px 40px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--taupe); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-cta { background: var(--taupe); color: var(--white); padding: 9px 24px; border-radius: 50px; font-size: 0.77rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background .2s; }
+    .nav-cta:hover { background: var(--dark); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; padding-top: 64px;
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .hero-left {
+      background: var(--taupe);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 80px 56px; text-align: center; position: relative; overflow: hidden;
+    }
+    .hero-left::before {
+      content: 'GLP-1';
+      position: absolute; right: -24px; top: 50%; transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', serif; font-size: 7rem; font-weight: 300;
+      color: rgba(255,255,255,0.06); writing-mode: vertical-rl; letter-spacing: 0.3em;
+    }
+    .hero-eyebrow {
+      display: inline-block; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.85); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; padding: 6px 18px; border-radius: 50px; margin-bottom: 28px;
+    }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,5vw,4.8rem); font-weight: 300; color: var(--white); line-height: 1.05; margin-bottom: 18px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 44px; }
+    .hero-tag { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.8); font-size: 0.7rem; padding: 5px 14px; border-radius: 50px; }
+    .hero-price { color: var(--sand); font-size: 1.6rem; font-family: 'Cormorant Garamond', serif; font-weight: 300; margin-bottom: 28px; }
+    .hero-price strong { font-size: 2.8rem; font-weight: 600; }
+    .hero-btn {
+      display: inline-block; background: var(--white); color: var(--taupe);
+      padding: 18px 44px; border-radius: 50px; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15); transition: all .25s;
+    }
+    .hero-btn:hover { background: var(--cream); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,0,0,0.2); }
+    .hero-note { color: rgba(255,255,255,0.45); font-size: 0.72rem; margin-top: 14px; }
+
+    .hero-right {
+      background: var(--cream); display: flex; align-items: center;
+      padding: 80px 56px;
+    }
+    .hero-right-inner { max-width: 480px; }
+    .fear-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: block; }
+    .fear-intro { font-size: 1.05rem; color: var(--dark); margin-bottom: 20px; }
+    .fear-qs { list-style: none; margin-bottom: 28px; }
+    .fear-qs li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 11px 0; border-bottom: 1px solid var(--light-t);
+      font-size: 0.95rem; color: #5a4a38; font-style: italic;
+    }
+    .fear-qs li::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--sand); line-height: 1; flex-shrink: 0; margin-top: -4px; }
+    .fear-answer { background: var(--taupe); color: var(--white); padding: 24px 28px; border-radius: 16px; }
+    .fear-answer strong { display: block; font-size: 1.05rem; margin-bottom: 8px; }
+    .fear-answer p { font-size: 0.92rem; opacity: .85; line-height: 1.7; }
+
+    /* ── SECTION WRAPPER ── */
+    .section { padding: 90px 40px; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+    .s-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: block; }
+    .s-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,3.5vw,3rem); font-weight: 300; color: var(--dark); margin-bottom: 14px; line-height: 1.15; }
+    .s-title em { font-style: italic; color: var(--taupe); }
+    .s-body { font-size: 0.98rem; color: #6b5c4a; line-height: 1.8; max-width: 580px; }
+
+    /* ── CHECK LIST ── */
+    #inclui { background: var(--white); }
+    .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
+    .check-item { display: flex; align-items: flex-start; gap: 14px; background: var(--cream); border: 1px solid var(--light-t); border-radius: 14px; padding: 20px 22px; }
+    .check-icon { width: 34px; height: 34px; flex-shrink: 0; background: var(--taupe); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 0.85rem; font-weight: 700; }
+    .check-text { font-size: 0.92rem; color: var(--dark); line-height: 1.55; }
+
+    /* ── NÃO É GENÉRICO ── */
+    #diferencial { background: var(--dark); }
+    #diferencial .s-title { color: var(--white); }
+    #diferencial .s-body { color: rgba(255,255,255,0.65); }
+    .bullets-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 36px 0; }
+    .bullet-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 50px; padding: 14px 20px; text-align: center; font-size: 0.9rem; color: var(--sand); }
+    #diferencial .s-body.note { margin-top: 16px; font-style: italic; color: rgba(255,255,255,0.45); }
+
+    /* ── OBJETIVO ── */
+    #objetivo { background: var(--cream); }
+    .obj-highlight { background: var(--sand); padding: 20px 36px; border-radius: 14px; text-align: center; margin: 20px 0; }
+    .obj-highlight p { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--dark); }
+    .goal-list { list-style: none; margin: 24px 0 0; }
+    .goal-list li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--light-t); font-size: 0.95rem; color: var(--dark); }
+    .goal-list li::before { content: '→'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+    .no-radical { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--taupe); font-style: italic; margin-top: 24px; display: block; }
+
+    /* ── TRACKER ── */
+    #tracker { background: var(--taupe); }
+    #tracker .s-title { color: var(--white); }
+    #tracker .s-body { color: rgba(255,255,255,0.75); }
+    .tracker-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 36px 0; }
+    .tracker-item { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 20px; text-align: center; }
+    .tracker-item .ti-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .tracker-item p { font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+    .tracker-quote { background: rgba(255,255,255,0.12); border-left: 3px solid var(--sand); padding: 18px 24px; border-radius: 0 12px 12px 0; margin-top: 12px; }
+    .tracker-quote p { font-size: 1rem; font-style: italic; color: var(--white); }
+
+    /* ── SOBRE ── */
+    #sobre { background: var(--white); }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    .sobre-visual { background: var(--taupe); border-radius: 24px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .sobre-initials { font-family: 'Cormorant Garamond', serif; font-size: 9rem; font-weight: 300; color: rgba(255,255,255,0.12); }
+    .sobre-badge { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.95); padding: 8px 22px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: var(--taupe); letter-spacing: 0.08em; white-space: nowrap; }
+    .crn-tag { display: inline-block; background: var(--light-t); color: var(--taupe); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+    .sobre-text p { font-size: 0.95rem; color: #6b5c4a; line-height: 1.8; margin-bottom: 14px; }
+    .sobre-highlight { background: var(--cream); border-left: 3px solid var(--sand); padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 20px 0; }
+    .sobre-highlight p { font-size: 1rem; font-style: italic; color: var(--taupe); font-weight: 500; margin: 0; }
+    .sente-list { list-style: none; }
+    .sente-list li { padding: 8px 0; font-size: 0.92rem; color: var(--dark); display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--light-t); }
+    .sente-list li::before { content: '•'; color: var(--sand); font-size: 1.3rem; flex-shrink: 0; }
+
+    /* ── VIRADA ── */
+    #virada { background: var(--cream); text-align: center; padding: 80px 40px; }
+    .virada-inner { max-width: 700px; margin: 0 auto; }
+    .virada-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,4vw,3.2rem); font-weight: 300; color: var(--dark); margin-bottom: 18px; }
+    .virada-title em { font-style: italic; color: var(--taupe); }
+    .virada-body { font-size: 1rem; color: #6b5c4a; line-height: 1.8; }
+
+    /* ── CTA ── */
+    #cta { background: var(--dark); padding: 100px 40px; text-align: center; }
+    .cta-inner { max-width: 680px; margin: 0 auto; }
+    .cta-price-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(196,168,130,0.6); margin-bottom: 16px; display: block; }
+    .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,5vw,4.5rem); font-weight: 300; color: var(--white); margin-bottom: 8px; }
+    .cta-price { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4vw,3rem); font-weight: 300; color: var(--sand); margin-bottom: 40px; }
+    .cta-btn {
+      display: inline-block; background: var(--sand); color: var(--dark);
+      padding: 22px 56px; border-radius: 50px; font-size: 1rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      box-shadow: 0 8px 32px rgba(196,168,130,0.3); transition: all .25s;
+      margin-bottom: 18px;
+    }
+    .cta-btn:hover { background: var(--white); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(196,168,130,0.4); }
+    .cta-sub { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-bottom: 44px; }
+    .cta-contacts { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .cta-contact-link { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color .2s; }
+    .cta-contact-link:hover { color: var(--sand); }
+
+    /* ── FOOTER ── */
+    footer { background: #1a150f; padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: rgba(255,255,255,0.4); }
+    .footer-disc { font-size: 0.7rem; color: rgba(255,255,255,0.25); max-width: 480px; text-align: right; }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float { position: fixed; bottom: 26px; right: 26px; z-index: 200; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 18px rgba(37,211,102,0.45); text-decoration: none; transition: transform .2s; }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 26px; height: 26px; fill: white; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-left { min-height: 60vh; padding: 100px 32px 56px; }
+      .hero-right { padding: 56px 32px 80px; }
+      .hero-right-inner { max-width: 100%; }
+      .check-grid { grid-template-columns: 1fr; }
+      .bullets-grid { grid-template-columns: 1fr 1fr; }
+      .tracker-grid { grid-template-columns: 1fr 1fr; }
+      .sobre-grid { grid-template-columns: 1fr; gap: 36px; }
+      .sobre-visual { aspect-ratio: 2/1; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-disc { text-align: center; }
+      .section { padding: 64px 24px; }
+      nav { padding: 14px 24px; }
+    }
+    @media (max-width: 560px) {
+      .bullets-grid { grid-template-columns: 1fr; }
+      .tracker-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">Andressa Bertoli | Nutricionista</a>
+  <a href="#cta" class="nav-cta">Quero Acesso</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Material Digital Exclusivo</span>
+    <h1 class="hero-title">Desmame<br>do GLP-1</h1>
+    <div class="hero-tags">
+      <span class="hero-tag">Receitas</span>
+      <span class="hero-tag">Chás</span>
+      <span class="hero-tag">Suplementos</span>
+      <span class="hero-tag">Tracker</span>
+      <span class="hero-tag">Anti-inflamatório</span>
+    </div>
+    <div class="hero-price">R$ <strong>97</strong></div>
+    <a href="https://checkout.infinitepay.io/guilherme-rubens/PElBALQ2yS" class="hero-btn" target="_blank">Quero Meu Acesso Agora</a>
+    <p class="hero-note">Material digital · Acesso imediato</p>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <span class="fear-label">Eu sei o que você está sentindo</span>
+      <p class="fear-intro">Se você chegou até aqui, provavelmente existe um medo aí dentro:</p>
+      <ul class="fear-qs">
+        <li>E se eu inflamar e recuperar tudo?</li>
+        <li>E se a fome voltar?</li>
+        <li>E se eu perder o controle?</li>
+      </ul>
+      <div class="fear-answer">
+        <strong>O desmame do GLP-1 não precisa ser caótico.</strong>
+        <p>O problema nunca foi apenas emagrecer e desinflamar. O verdadeiro desafio é ensinar o corpo a funcionar sem depender exclusivamente da medicação. Foi exatamente por isso que eu criei este material.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── O QUE VOCÊ VAI ENCONTRAR ── -->
+<section id="inclui" class="section">
+  <div class="section-inner">
+    <span class="s-label">O que você recebe</span>
+    <h2 class="s-title">O que você vai<br><em>encontrar aqui</em></h2>
+    <div class="check-grid">
+      <div class="check-item">
+        <div class="check-icon">✔</div>
+        <span class="check-text">Estratégias anti-inflamatórias para o lipedema</span>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✔</div>
+        <span class="check-text">Receitas funcionais para mais estabilidade metabólica</span>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✔</div>
+        <span class="check-text">Chás e especiarias estratégicas</span>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✔</div>
+        <span class="check-text">Organização da suplementação</span>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✔</div>
+        <span class="check-text">Ferramentas de consciência metabólica</span>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✔</div>
+        <span class="check-text">Tracker de acompanhamento diário</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NÃO É GENÉRICO ── -->
+<section id="diferencial" class="section">
+  <div class="section-inner">
+    <span class="s-label">Por que é diferente</span>
+    <h2 class="s-title">Isso não é mais um material<br>genérico de emagrecimento</h2>
+    <p class="s-body">Aqui, o foco não é apenas peso. E sim:</p>
+    <div class="bullets-grid">
+      <div class="bullet-pill">inflamação</div>
+      <div class="bullet-pill">retenção</div>
+      <div class="bullet-pill">compulsão</div>
+      <div class="bullet-pill">metabolismo</div>
+      <div class="bullet-pill">estabilidade</div>
+      <div class="bullet-pill">reconstrução de rotina</div>
+    </div>
+    <p class="s-body note">Porque mulheres com lipedema não respondem da mesma forma que corpos sem inflamação crônica.</p>
+  </div>
+</section>
+
+<!-- ── OBJETIVO ── -->
+<section id="objetivo" class="section">
+  <div class="section-inner">
+    <span class="s-label">A proposta</span>
+    <h2 class="s-title">O objetivo agora não é<br><em>restrição extrema</em></h2>
+    <div class="obj-highlight">
+      <p>É estabilidade.</p>
+    </div>
+    <p class="s-body">As estratégias desse material foram pensadas para ajudar você a:</p>
+    <ul class="goal-list">
+      <li>reduzir o caos alimentar</li>
+      <li>melhorar consciência corporal</li>
+      <li>organizar sua rotina metabólica</li>
+      <li>reconstruir saciedade</li>
+      <li>reduzir a sensação constante de perder o controle</li>
+    </ul>
+    <span class="no-radical">Sem radicalismo.</span>
+  </div>
+</section>
+
+<!-- ── TRACKER ── -->
+<section id="tracker" class="section">
+  <div class="section-inner">
+    <span class="s-label">Ferramenta poderosa</span>
+    <h2 class="s-title">O tracker muda a forma<br>como você enxerga seu corpo</h2>
+    <p class="s-body">O acompanhamento visual ajuda você a perceber:</p>
+    <div class="tracker-grid">
+      <div class="tracker-item">
+        <div class="ti-icon">🔥</div>
+        <p>padrões de fome</p>
+      </div>
+      <div class="tracker-item">
+        <div class="ti-icon">💧</div>
+        <p>retenção</p>
+      </div>
+      <div class="tracker-item">
+        <div class="ti-icon">🌀</div>
+        <p>compulsão</p>
+      </div>
+      <div class="tracker-item">
+        <div class="ti-icon">⚡</div>
+        <p>energia</p>
+      </div>
+      <div class="tracker-item">
+        <div class="ti-icon">🌿</div>
+        <p>sintomas inflamatórios</p>
+      </div>
+      <div class="tracker-item">
+        <div class="ti-icon">📈</div>
+        <p>evolução da rotina</p>
+      </div>
+    </div>
+    <div class="tracker-quote">
+      <p>O tracker é uma ferramenta de consciência — não de culpa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOBRE ── -->
+<section id="sobre" class="section">
+  <div class="section-inner">
+    <div class="sobre-grid">
+      <div class="sobre-visual">
+        <span class="sobre-initials">AB</span>
+        <span class="sobre-badge">Andressa Bertoli · CRN 810635</span>
+      </div>
+      <div class="sobre-text">
+        <span class="crn-tag">Quem criou esse material</span>
+        <h2 class="s-title">Eu sou Andressa Bertoli.<br><em>E eu também tenho lipedema.</em></h2>
+        <p>Sou nutricionista funcional especialista em lipedema. E foi exatamente essa experiência pessoal que mudou completamente a forma como eu trato minhas pacientes.</p>
+        <div class="sobre-highlight">
+          <p>Porque eu sei exatamente como é.</p>
+        </div>
+        <ul class="sente-list">
+          <li>ter medo do rebote</li>
+          <li>sentir o corpo inflamar</li>
+          <li>fazer tudo "certo" e ainda sofrer</li>
+          <li>viver cansada de começar de novo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VIRADA ── -->
+<section id="virada">
+  <div class="virada-inner">
+    <h2 class="virada-title">Sua jornada não termina<br>quando o <em>GLP-1 acaba</em></h2>
+    <p class="virada-body">Com acompanhamento, consciência e estratégias corretas, é possível manter resultados sem viver presa ao efeito rebote.</p>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section id="cta">
+  <div class="cta-inner">
+    <span class="cta-price-label">Acesso imediato</span>
+    <h2 class="cta-title">Desmame do GLP-1</h2>
+    <p class="cta-price">R$ 97 💛</p>
+    <a href="https://checkout.infinitepay.io/guilherme-rubens/PElBALQ2yS" class="cta-btn" target="_blank">Quero Meu Acesso Agora</a>
+    <p class="cta-sub">Material 100% digital &nbsp;•&nbsp; Entrega imediata após pagamento</p>
+    <div class="cta-contacts">
+      <a href="https://wa.me/5542998048864" class="cta-contact-link" target="_blank">📱 +55 42 99804-8864</a>
+      <a href="https://instagram.com/lipedemanutricionista" class="cta-contact-link" target="_blank">📸 @lipedemanutricionista</a>
+      <a href="https://www.lipedemanutricionista.com.br" class="cta-contact-link" target="_blank">🌐 www.lipedemanutricionista.com.br</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="footer-brand">Andressa Bertoli Nutricionista</span>
+  <span class="footer-disc">Este material é educativo e não substitui acompanhamento individualizado. CRN 810635.</span>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5542998048864?text=Oi%20Andressa!%20Tenho%20interesse%20no%20material%20Desmame%20do%20GLP-1" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
